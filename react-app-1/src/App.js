@@ -7,7 +7,6 @@ import cards from "../src/cards.json";
 import MovieCard from './components/MovieCard';
 
 class App extends React.Component {
-  // Setting this.state.friends to the friends json array
   state = {
     cards: []
   };
@@ -19,7 +18,16 @@ class App extends React.Component {
   }
 
   shuffle() {
-    this.state.cards
+    let shuffleArray = this.state.cards, temporaryValue, randomIndex;
+
+    while (shuffleArray !== 0) {
+      randomIndex = Math.floor(Math.random() * shuffleArray);
+      shuffleArray = -1;
+      temporaryValue = array[shuffleArray];
+      array[shuffleArray] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
   }
 
   //pass a function to the on click listener
