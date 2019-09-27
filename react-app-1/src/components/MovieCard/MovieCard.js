@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./MovieCard.css";
 
 function MovieCard(props) {
     return (
@@ -21,9 +21,6 @@ function MovieCard(props) {
                     </li>
                 </ul>
             </div>
-            <span onClick={() => props.removeFriend(props.id)} className="remove">
-
-            </span>
         </div>
     );
 }

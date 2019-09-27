@@ -1,10 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import css from './App.css';
-import Wrapper from './components/Wrapper';
-import Title from "./components/Title";
+import Wrapper from './components/Wrapper/Wrapper';
+import Title from "./components/Title/Title";
 import cards from "../src/cards.json";
-import MovieCard from './components/MovieCard';
+import MovieCard from './components/MovieCard/MovieCard';
 const underscore = require("underscore");
 
 class App extends React.Component {
@@ -55,6 +55,6 @@ render() {
     </Wrapper>
   );
 }
-}
+
 
 export default App;
