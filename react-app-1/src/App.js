@@ -32,13 +32,11 @@ class App extends React.Component {
     return (
       <div>
         <Hero backgroundImage="https://images.unsplash.com/photo-1512415031623-5c8392938dc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60">
-          <h1>Clicky Game!!</h1>
-          <h2>Remember to Collect</h2>
+
         </Hero>
         <Container style={{ marginTop: 30 }}>
           <Row>
             <Col size="md-12">
-              <h1>Welcome To Pupster!</h1>
             </Col>
           </Row>
           <Row>
@@ -47,12 +45,16 @@ class App extends React.Component {
           </Row>        <Wrapper>
             <Title>Card Match</Title>
             {this.state.cards.map(card => (
-              <MovieCard
-                name={card.name}
-                image={card.image}
-                movie={card.movie}
-                shuffle={this.shuffle}
-              />
+              <Row>
+                <Col size="sm-12">
+                  <MovieCard
+                    name={card.name}
+                    image={card.image}
+                    movie={card.movie}
+                    shuffle={this.shuffle}
+                  />
+                </Col>
+              </Row>
             ))}
           </Wrapper>
         </Container>

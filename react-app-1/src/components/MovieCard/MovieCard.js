@@ -10,15 +10,7 @@ function MovieCard(props) {
             </div>
             <div className="content">
                 <ul>
-                    <li>
-                        <strong>Name:</strong> {props.name}
-                    </li>
-                    <li>
-                        <strong>Image:</strong> {props.image}
-                    </li>
-                    <li>
-                        <strong>Movie:</strong> {props.movie}
-                    </li>
+
                 </ul>
             </div>
         </div>
