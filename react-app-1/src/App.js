@@ -22,43 +22,44 @@ class App extends React.Component {
     })
   }
 
-  // _.shuffle = event => {
-  //   event.preventDefault();
-  //   // this.state.cards
-  // }
+  shuffle = event => {
+    event.preventDefault();
+    let shuffleArray = underscore.shuffle(this.state.cards)
+    event.target.value
+    this.state.cards.forEach(element => {
+
+    });
+
+    this.setState({
+      cards: shuffleArray
+    })
+  }
 
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <Hero backgroundImage="https://images.unsplash.com/photo-1512415031623-5c8392938dc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60">
 
         </Hero>
         <Container style={{ marginTop: 30 }}>
+
+          <Title>Card Match</Title>
           <Row>
-            <Col size="md-12">
-            </Col>
-          </Row>
-          <Row>
-            <Col size="md-12">
-            </Col>
-          </Row>        <Wrapper>
-            <Title>Card Match</Title>
             {this.state.cards.map(card => (
-              <Row>
-                <Col size="sm-12">
-                  <MovieCard
-                    name={card.name}
-                    image={card.image}
-                    movie={card.movie}
-                    shuffle={this.shuffle}
-                  />
-                </Col>
-              </Row>
+              <Col size="sm-4">
+                <MovieCard
+                  name={card.name}
+                  image={card.image}
+                  id={card.id}
+                  movie={card.movie}
+                  shuffle={this.shuffle}
+                />
+              </Col>
             ))}
-          </Wrapper>
+          </Row>
         </Container>
-      </div>
+      </Wrapper>
     )
   }
 }
