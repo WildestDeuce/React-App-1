@@ -13,22 +13,34 @@ import underscore from "underscore";
 
 class App extends React.Component {
   state = {
-    cards: []
+    cards,
+    cardsArr: [],
+    score: 0,
+    hasLost: false,
   };
 
   componentDidMount() {
     this.setState({
-      cards: cards
+      cards: cards,
     })
   }
 
-  shuffle = event => {
-    event.preventDefault();
+  shuffle = (id) => {
     let shuffleArray = underscore.shuffle(this.state.cards)
-    event.target.value
+    // event.target.value
+    console.log(id);
+    if (this.state.cardsArr.includes(id)) {
+      this.setState({ score: 0, cardsArr: [], hasLost: true });
+    } else {
+      this.setState({
+        cardsArr: this.state.cards.concat([id]),
+        score: this.state.score + 1,
+        hasLost: false
+      });
+    }
     this.state.cards.forEach(element => {
-
     });
+
 
     this.setState({
       cards: shuffleArray
@@ -44,16 +56,20 @@ class App extends React.Component {
         </Hero>
         <Container style={{ marginTop: 30 }}>
 
-          <Title>Card Match</Title>
+          <Title><h1>Clicky Game!</h1>
+            <h2>Clicking the same picture twice resets to zero!!</h2>
+            <h3>Counter: {this.state.score}</h3></Title>
           <Row>
             {this.state.cards.map(card => (
               <Col size="sm-4">
                 <MovieCard
+                  shuffle={this.shuffle}
+                  {...console.log(this.state.score)}
                   name={card.name}
                   image={card.image}
                   id={card.id}
+                  key={card.id}
                   movie={card.movie}
-                  shuffle={this.shuffle}
                 />
               </Col>
             ))}
